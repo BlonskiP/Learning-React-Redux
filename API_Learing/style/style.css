@@ -1,24 +1,41 @@
-#TimeID{
-    font-size:50px;
+body {
+    background-color: #46494C;
+}
+.container {
+    margin: 0.5em auto;
+}
+p {
+    margin: 0.2em;
+    padding: 10px;
+    font-size: 200%;
+}
+#TimeID {
+    margin: 0.5em;
+    font-size: 40px;
     text-align: center;
+    color: #C5C3C6;
 }
 
-.btn{
-    font-size:30px;
-    border: 2px dotted lightgray;
-    width:30%;
+.btn {
+    margin: 0.5em;
+    font-size: 30px;
+    border: 2px solid rgba(76, 92, 104, 0.2);
+    width: 50%;
     text-align: center;
-    background:grey;
-    border-radius: 30%;
+    background: #1985A1;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    color:white;}
-
-.BtnContainer{
-    width:50%;
-    display:flex;
-    justify-content: space-around;
-    margin:0 auto;
-    
+    color: #C5C3C6;
+}
+.btn:hover {
+    background-color: #2D90A9;
+    color: #DCDCDD;
+}
+.BtnContainer {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
