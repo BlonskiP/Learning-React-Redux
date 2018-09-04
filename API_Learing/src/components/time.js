@@ -1,74 +1,81 @@
 import React from 'react';
 import timestampToDate from 'timestamp-to-date';
-
+import _ from 'lodash';
 import axios from 'axios';
 const url="http://worldclockapi.com/api/json/cet/now"
  class TimeShow extends React.Component{
-constructor(props)
-{
-    super(props);
-    this.state={
-        hour:12,
-        minutes:30,
-        seconds:50,
-        minis:660,
-    year:2018,
-    day:'09',
-    month:'08',};
-    this.setTime=this.setTime.bind(this);
-}
-setTime(){
-    let date;
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            hour:0,
+            minutes:0,
+            seconds:0,
+        year:0,
+        day:0,
+        month:0};
+        this.setTime=this.setTime.bind(this);
+        this.setTime();
+        this.setDate();
+    }
+    setTime(){
     
-    axios.get("http://worldclockapi.com/api/json/cet/now").then(
-        (response)=>{let getMil=response.data.currentFileTime;
-            console.log("AXIOS:"+ response.data.currentDateTime)
-            let year=response.data.currentDateTime.toString().substring(0,4);
-            let month=response.data.currentDateTime.toString().substring(5,7);
-            let hours=response.data.currentDateTime.toString().substring(11,13);
-            console.log(hours);
+        axios.get("http://worldclockapi.com/api/json/cet/now").then(
+            (response)=>{
+                console.log("AXIOS:"+ response.data.currentDateTime)
+          
+                let fhours=response.data.currentDateTime.toString().substring(11,13);
+                let fminutes=response.data.currentDateTime.toString().substring(14,16);
+                let fseconds;
+                let milliseconds=response.data.currentFileTime.toString();
+            
            
-            let minutes=response.data.currentDateTime.toString().substring(0,4);
-            
-            
-            let seconds;
-            let minis;
-   
-            let day; 
-            let milliseconds;
-           day=new Date(year, month, day, hours, minutes, seconds, milliseconds);
-           date=timestampToDate(getMil,'HH:MM:ss');
-           console.log(date);
-           this.setState({
-            hour:2,
-            minutes:37,
-            seconds:30,
-            minis:307}
+           fseconds=parseInt(((milliseconds.substring(9,11)))%60);
+          
+
+            this.setState({
+                hour:fhours,
+                minutes:fminutes,
+                seconds:fseconds,
+            });
+            }
+        );
+        
+    _.delay(this.setTime,1000);
+        
+    }
+    
+    setDate(){
+        axios.get("http://worldclockapi.com/api/json/cet/now").then(
+            (response)=>{
+                console.log("AXIOS:"+ response.data.currentDateTime)
+                let fyear=response.data.currentDateTime.toString().substring(0,4);
+                let fmonth=response.data.currentDateTime.toString().substring(5,7);
+                let fday=response.data.currentDateTime.toString().substring(8,10);
+                this.setState({
+                    year:fyear,
+                    day:fday,
+                    month:fmonth
+                })}
+                );
+}
+    render()
+        {   
+            return(
+        <div id="TimeID">
+        Today is: <p> 
+        {this.state.year}:
+        {this.state.month}:
+        {this.state.day}</p>
+        Time is:
+        {this.state.hour}:
+        {this.state.minutes}:
+        {this.state.seconds}
+        
+        </div> 
+
             )
         }
-    );
-    
-   
-    
-}
-render()
-    {   
-        return(
-       <div id="TimeID" onClick={this.setTime}>
-       Today is: <p> 
-       {this.state.year}:
-       {this.state.month}:
-       {this.state.day}</p>
-       Time is:
-       {this.state.hour}:
-       {this.state.minutes}:
-       {this.state.seconds}:
-       {this.state.minis}
-       
-       </div> 
-
-        )
-    }
 }
 
 export default TimeShow;

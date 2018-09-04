@@ -6,14 +6,15 @@
 .btn{
     font-size:30px;
     border: 2px dotted lightgray;
-width:30%;
-text-align: center;
-background:grey;
-border-radius: 30%;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-color:white;}
+    width:30%;
+    text-align: center;
+    background:grey;
+    border-radius: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color:white;}
+
 .BtnContainer{
     width:50%;
     display:flex;
