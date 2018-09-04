@@ -4,8 +4,7 @@ class SaveTimeList extends React.Component
 {
     render()
     {return(
-        <div>
-        <TimeItem time="5"/>
+        <div className='timeList'>
         <TimeItem/>
         <TimeItem/>
         <TimeItem/>
