@@ -4,7 +4,7 @@ class DelBtn extends React.Component
 {
     render()
     {
-        return(<div className="btn">Skasuj poprzedni Czas!</div>)
+        return(<div className="btn">Delete Time!</div>)
     }
 }
 export default DelBtn;

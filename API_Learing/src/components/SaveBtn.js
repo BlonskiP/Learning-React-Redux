@@ -4,7 +4,7 @@ class SaveBtn extends React.Component
 {
     render()
     {
-        return(<div className="btn">Zapisz Czas!</div>)
+        return(<div className="btn">Save Time!</div>)
     }
 }
 export default SaveBtn;
