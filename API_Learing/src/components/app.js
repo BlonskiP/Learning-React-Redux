@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TimeShow from './time.js';
+import TimeShow from '../containers/time.js';
 
 import SaveBtn from './SaveBtn';
 import SaveTimeList from '../containers/saveTimeList';

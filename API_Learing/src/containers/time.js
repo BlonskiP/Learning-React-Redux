@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import axios from 'axios';
+import { bindActionCreators } from 'redux';
 const url="http://worldclockapi.com/api/json/cet/now"
  class TimeShow extends React.Component{
     constructor(props)
@@ -23,7 +24,7 @@ const url="http://worldclockapi.com/api/json/cet/now"
     
         axios.get("http://worldclockapi.com/api/json/cet/now").then(
             (response)=>{
-                console.log("AXIOS:"+ response.data.currentDateTime)
+                //console.log("AXIOS:"+ response.data.currentDateTime)
           
                 let fhours=response.data.currentDateTime.toString().substring(11,13);
                 let fminutes=response.data.currentDateTime.toString().substring(14,16);
@@ -38,11 +39,10 @@ const url="http://worldclockapi.com/api/json/cet/now"
         _.delay(this.setTime,1000);
         
     }
-    
-    setDate(){
+     setDate(){
         axios.get("http://worldclockapi.com/api/json/cet/now").then(
             (response)=>{
-                console.log("AXIOS:"+ response.data.currentDateTime)
+                //console.log("AXIOS:"+ response.data.currentDateTime)
                 let fyear=response.data.currentDateTime.toString().substring(0,4);
                 let fmonth=response.data.currentDateTime.toString().substring(5,7);
                 let fday=response.data.currentDateTime.toString().substring(8,10);
@@ -66,6 +66,10 @@ const url="http://worldclockapi.com/api/json/cet/now"
 
             )
         }
+}
+
+function mapDispatchToPros(dispatch){
+    return bindActionCreators({},dispatch);
 }
 
 export default TimeShow;
