@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TimeShow from '../containers/time.js';
-
+import getTime from '../actions/index'
 import SaveBtn from './SaveBtn';
 import SaveTimeList from '../containers/saveTimeList';
 export default class App extends Component {

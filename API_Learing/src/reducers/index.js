@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-
+import TimeReducer from './reducerTime';
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  time: TimeReducer
 });
 
 export default rootReducer;
