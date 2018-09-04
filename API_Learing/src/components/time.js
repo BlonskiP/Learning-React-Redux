@@ -1,5 +1,4 @@
 import React from 'react';
-import timestampToDate from 'timestamp-to-date';
 import _ from 'lodash';
 import axios from 'axios';
 const url="http://worldclockapi.com/api/json/cet/now"
