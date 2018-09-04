@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import TimeShow from '../containers/time.js';
-import getTime from '../actions/index'
-import SaveBtn from './SaveBtn';
+
+import SaveBtn from '../containers/SaveBtn';
 import SaveTimeList from '../containers/saveTimeList';
 export default class App extends Component {
   render() {
     return (
 
       <div>
-        <TimeShow />
+        <TimeShow  />
         <div className="BtnContainer">
         <SaveBtn />
       
@@ -17,4 +17,5 @@ export default class App extends Component {
       </div>
     );
   }
+  
 }

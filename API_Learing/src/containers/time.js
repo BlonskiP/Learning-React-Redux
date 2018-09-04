@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import axios from 'axios';
-import getTime from '../actions/';
+import {getTime} from '../actions/';
 import { bindActionCreators } from 'redux';
 import{connect} from 'react-redux';
 const url="http://worldclockapi.com/api/json/cet/now"
