@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {deleteRecord} from '../actions'
+import {deleteRecord} from '../actions';
+import { bindActionCreators } from 'redux';
 class DelBtn extends React.Component
 {   static number=0;
     constructor(props)
@@ -8,16 +9,18 @@ class DelBtn extends React.Component
         super(props);
         
         this.handleClick=this.handleClick.bind(this);
-        this.state={id: this.props.id}
     }
     render()
     {
-        return(<div onClick={this.handleClick} className="btn btn_delete">{this.props.id}Delete Time!</div>)
+        return(<div onClick={this.handleClick} className="btn btn_delete">Delete Time!</div>)
     }
     handleClick()
     {
-        console.log(this.state.id);
-      //  this.props.deleteRecord(this.props.id);
+        this.props.deleteRecord(this.props.id);
     }
 }
-export default DelBtn;
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({deleteRecord},dispatch);
+}
+export default connect(null,mapDispatchToProps)(DelBtn)

@@ -12,7 +12,9 @@ class SaveTimeList extends React.Component
     {return(
         <div className='timeList'>
         {this.props.record.map(
-            (record,i=0)=>{i++; return (<TimeItem key={i} time={record}/>)}
+            (record,i=0)=>{ return (
+              
+            <TimeItem key={i} id={i} time={record}/>)}
         )}
        
         </div>

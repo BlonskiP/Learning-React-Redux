@@ -13,7 +13,7 @@ export function saveTime(time){
     }
 }
 export function deleteRecord(index){
-    console.log('DELETED'+index)
+    console.log('DELETED '+index)
     return{type:'DEL_TIME',
     payload:index}
 }
