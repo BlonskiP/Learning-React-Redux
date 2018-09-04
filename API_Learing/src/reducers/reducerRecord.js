@@ -2,19 +2,23 @@ export default function(state=[],action)
 {
     switch(action.type){
         case 'SAVE_TIME':{
-            console.log("RECORD:"+state);
+          //  console.log("RECORD:"+state);
             
             return [...state,action.payload];}
         case 'DEL_TIME':{
-            let temp1=state.slice(0,action.payload);
-            let temp2=state.slice(action.payload,state.length);
-            console.log(temp1);
-            console.log("DEL" + action.payload);
-            let newstate=[];
-          
-            return newstate.contact(temp1,temp2);
-        }//To DO
+            let tmp=[];
+           for(let i=0;i<action.payload;i++)
+            tmp[i]=state[i];          
+           for(let i=action.payload;i<state.length-1;i++)
+           tmp[i]=state[i+1];
+          // console.log(tmp);
+           return tmp;
+        }
         
     }
     return state;
+}
+function remove(array, index) {
+    
+   
 }
