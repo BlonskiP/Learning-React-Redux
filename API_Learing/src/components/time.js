@@ -12,7 +12,9 @@ const url="http://worldclockapi.com/api/json/cet/now"
             seconds:0,
         year:0,
         day:0,
-        month:0};
+        month:0,
+        time:'',
+        days:''};
         this.setTime=this.setTime.bind(this);
         this.setTime();
         this.setDate();
@@ -27,20 +29,13 @@ const url="http://worldclockapi.com/api/json/cet/now"
                 let fminutes=response.data.currentDateTime.toString().substring(14,16);
                 let fseconds;
                 let milliseconds=response.data.currentFileTime.toString();
-            
-           
-           fseconds=parseInt(((milliseconds.substring(9,11)))%60);
-          
-
-            this.setState({
-                hour:fhours,
-                minutes:fminutes,
-                seconds:fseconds,
-            });
+                fseconds=parseInt(((milliseconds.substring(9,11)))%60);
+                let ftime=fhours.toString()+':'+fminutes.toString()+':'+fseconds.toString();
+                this.setState({ time:ftime});
             }
         );
         
-    _.delay(this.setTime,1000);
+        _.delay(this.setTime,1000);
         
     }
     
@@ -51,10 +46,9 @@ const url="http://worldclockapi.com/api/json/cet/now"
                 let fyear=response.data.currentDateTime.toString().substring(0,4);
                 let fmonth=response.data.currentDateTime.toString().substring(5,7);
                 let fday=response.data.currentDateTime.toString().substring(8,10);
+                let fdays=fyear.toString()+'.'+fmonth.toString()+'.'+fday.toString();
                 this.setState({
-                    year:fyear,
-                    day:fday,
-                    month:fmonth
+                    days:fdays
                 })}
                 );
 }
@@ -63,13 +57,10 @@ const url="http://worldclockapi.com/api/json/cet/now"
             return(
         <div id="TimeID">
         Today is: <p> 
-        {this.state.year}:
-        {this.state.month}:
-        {this.state.day}</p>
+        {this.state.days}
+        </p>
         Time is:
-        {this.state.hour}:
-        {this.state.minutes}:
-        {this.state.seconds}
+        {this.state.time}
         
         </div> 
 
