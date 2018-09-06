@@ -1,0 +1,88 @@
+body {
+    background-color: #46494C;
+}
+
+.container {
+    margin: 0.5em auto;
+}
+
+p {
+    margin: 0.2em;
+    padding: 0.2em;
+    font-size: 180%;
+}
+
+#TimeID {
+    margin: 0.5em;
+    font-size: 3em;
+    text-align: center;
+    color: #C5C3C6;
+}
+
+.btn {
+    margin: 0.5em;
+    padding: 0.2em;
+    font-size: 2em;
+    border: 2px solid rgba(76, 92, 104, 0.5);
+    width: 6em;
+    text-align: center;
+    background: #2D90A9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #C5C3C6;
+    transition: 0.3s;
+
+}
+
+.btn:hover {
+    background-color: #1985A1;
+    color: #DCDCDD;
+    2 D90A9;
+    border: 2px solid rgba(76, 92, 104, 0.9);
+    cursor: pointer;
+
+}
+
+.btn_delete {
+    width: 6em;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.timeList {
+    display: flex;
+    flex-direction: column;
+}
+li {
+    font-size: 2.5em;
+    display: flex;
+    align-items: center;
+
+}
+
+.timeList > span {
+    margin: 0.1em auto 0.1em auto;
+    width: 30em;
+    background-color: #56595C;
+    border: 3px solid rgba(32, 34, 35, 0.4);
+    padding: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style-type: none;
+    color: #C5C3C6;
+
+}
+.timeList > span:last-child {
+    margin: 0.1em auto 1.5em auto;
+}
+
+.BtnContainer {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}

@@ -1,0 +1,41 @@
+body {
+    background-color: #46494C;
+}
+.container {
+    margin: 0.5em auto;
+}
+p {
+    margin: 0.2em;
+    padding: 10px;
+    font-size: 200%;
+}
+#TimeID {
+    margin: 0.5em;
+    font-size: 40px;
+    text-align: center;
+    color: #C5C3C6;
+}
+
+.btn {
+    margin: 0.5em;
+    font-size: 30px;
+    border: 2px solid rgba(76, 92, 104, 0.2);
+    width: 50%;
+    text-align: center;
+    background: #1985A1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #C5C3C6;
+}
+.btn:hover {
+    background-color: #2D90A9;
+    color: #DCDCDD;
+}
+.BtnContainer {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
