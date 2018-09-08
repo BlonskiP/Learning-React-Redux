@@ -2,26 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import {BrowserRouter, Route} from 'react-router-dom'
-import App from './components/app';
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import PostIndex from './components/posts_index';
+import PostsNew from './components/posts_new';
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+import promise from 'redux-promise'; // Middleware for fetching API data
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-class Hello extends React.Component{
-  render(){return <div>Hello!</div>}
-}
-class Goodbye extends React.Component{
-  render(){return <div>Bye!</div>}
-}
+
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
-    <div>
-    <Route path="/hello" component={Hello}/>
-    <Route path="/goodbye" component={Goodbye}/>
-    </div>
+      <div>
+        <Switch>
+        <Route path="/posts/new" component={PostsNew} />
+        <Route path="/" component={PostIndex} />
+        </Switch>
+      </div>
     </BrowserRouter>
 
   </Provider>
