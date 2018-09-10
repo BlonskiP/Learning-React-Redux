@@ -9,10 +9,12 @@ class PostsIndex extends React.Component{
         this.props.fetchPosts(); //download data from api
     }
     renderPosts(){
-        _.map(this.props.posts, posts =>{
+       return  _.map(this.props.posts, posts =>{
             return (
-                <li className="list-group-item" key={post.id}>
-                {post.title}
+                <li className="list-group-item" key={posts.id}>
+                <Link to={`/posts/${posts.id}`}>
+                {posts.title}
+                </Link>
                 </li>
             );
         });

@@ -6,7 +6,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import PostIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 import reducers from './reducers';
-
+import PostsShow from './components/posts_show';
 import promise from 'redux-promise'; // Middleware for fetching API data
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -18,6 +18,7 @@ ReactDOM.render(
       <div>
         <Switch>
         <Route path="/posts/new" component={PostsNew} />
+        <Route path="/posts/:id" component={PostsShow} />
         <Route path="/" component={PostIndex} />
         </Switch>
       </div>
